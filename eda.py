@@ -3,8 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 
-def read_csv_file():
-    filename = 'data/house_price_regression_dataset.csv'
+def read_csv_file(filename):
     df = pd.read_csv(filename)
     return df
 
@@ -87,7 +86,8 @@ def eda(df):
 
 
 if __name__ == "__main__":
-    df = read_csv_file()
+    filepath = 'data/house_price_regression_dataset.csv'
+    df = read_csv_file(filepath)
 
     cleaned_df = eda(df)
 
