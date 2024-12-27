@@ -1,5 +1,6 @@
 from sklearn.model_selection import GridSearchCV, train_test_split, cross_val_score, KFold
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 import xgboost as xgb
@@ -14,7 +15,7 @@ def train_test(df):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101, shuffle=True)
 
     # Только один тип масштабирования (StandardScaler)
-    scaler = StandardScaler()
+    scaler = MinMaxScaler()
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
 
@@ -89,6 +90,38 @@ def XGBoost_with_cv(X_train, X_test, y_train, y_test):
     # Возвращаем предсказания
     return y_pred
 
+def RandomForest_with_cv(X_train, X_test, y_train, y_test):
+    model = RandomForestRegressor(random_state=101)
+
+    # Сетка гиперпараметров
+    param_grid = {
+        'n_estimators': [100, 200, 300],
+        'max_depth': [None, 10, 20, 30],
+        'min_samples_split': [2, 5, 10],
+        'min_samples_leaf': [1, 2, 4]
+    }
+
+    # Настройка GridSearchCV
+    grid_search = GridSearchCV(
+        estimator=model,
+        param_grid=param_grid,
+        scoring='neg_mean_squared_error',
+        cv=5,
+        n_jobs=-1,
+        verbose=1
+    )
+
+    # Поиск лучших гиперпараметров
+    grid_search.fit(X_train, y_train)
+
+    # Лучшая модель
+    best_model = grid_search.best_estimator_
+
+    # Предсказания
+    y_pred = best_model.predict(X_test)
+
+    return y_pred
+
 
 if __name__== "__main__":
     filepath = 'data/cleaned_dataset.csv'
@@ -96,13 +129,41 @@ if __name__== "__main__":
 
     X_train, X_test, y_train, y_test = train_test(df)
 
-    # y_pred = Linear_Regression_with_cv(X_train, X_test, y_train, y_test)
-    #
-    # plot_actual(y_test, y_pred)
-    #
-    # plot_tails(y_test, y_pred)
+    y_pred = Linear_Regression_with_cv(X_train, X_test, y_train, y_test)
 
-    y_pred = XGBoost_with_cv(X_train, X_test)
+    mse = mean_squared_error(y_test, y_pred)
+    rmse = np.sqrt(mse)
+    r2 = r2_score(y_test, y_pred)
+    mape = np.mean(np.abs((y_test - y_pred) / y_test)) * 100
+
+    # Вывод результатов
+    print(f"MSE: {mse}")
+    print(f"RMSE: {rmse}")
+    print(f"R²: {r2}")
+    print(f"MAPE: {mape:.2f}%")
+
+    plot_actual(y_test, y_pred)
+
+    plot_tails(y_test, y_pred)
+
+    y_pred = XGBoost_with_cv(X_train, X_test, y_train, y_test)
+
+    mse = mean_squared_error(y_test, y_pred)
+    rmse = np.sqrt(mse)
+    r2 = r2_score(y_test, y_pred)
+    mape = np.mean(np.abs((y_test - y_pred) / y_test)) * 100
+
+    # Вывод результатов
+    print(f"MSE: {mse}")
+    print(f"RMSE: {rmse}")
+    print(f"R²: {r2}")
+    print(f"MAPE: {mape:.2f}%")
+
+    plot_actual(y_test, y_pred)
+
+    plot_tails(y_test, y_pred)
+
+    y_pred = RandomForest_with_cv(X_train, X_test, y_train, y_test)
 
     mse = mean_squared_error(y_test, y_pred)
     rmse = np.sqrt(mse)
