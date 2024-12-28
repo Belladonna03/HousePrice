@@ -72,7 +72,7 @@ def eda(df):
     plot_corr_matrix(df, title='Correlation Matrix Before Preprocessing', dir_name='eda')
 
     #The correlation with target column is 0.99
-    df = df.drop('Square_Footage', axis=1)
+    # df = df.drop('Square_Footage', axis=1)
 
     df = drop_duplicates(df)
 
