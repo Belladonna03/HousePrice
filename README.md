@@ -1,4 +1,4 @@
-# HousePrice Regression Project
+# HousePrice 🏠📈
 
 This project predicts house prices using various regression techniques and provides tools for data analysis and visualization.
 
