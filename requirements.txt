@@ -1,0 +1,7 @@
+python>=3.7
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+xgboost

@@ -80,7 +80,7 @@ def eda(df):
     print(df.columns)
 
     # Построение матрицы корреляции до обработки
-    plot_corr_matrix(df, title='Correlation Matrix Before Preprocessing', dir_name='eda')
+    plot_corr_matrix(df, title='Correlation_Matrix_Before_Preprocessing', dir_name='eda')
 
     #The correlation with target column is 0.99
     # df = df.drop('Square_Footage', axis=1)
@@ -93,7 +93,7 @@ def eda(df):
         plot_boxplot(column, df, dir_name='eda')
 
     # Построение матрицы корреляции после обработки
-    plot_corr_matrix(df, title='Correlation Matrix After Preprocessing', dir_name='eda')
+    plot_corr_matrix(df, title='Correlation_Matrix_After_Preprocessing', dir_name='eda')
 
     return df
 
