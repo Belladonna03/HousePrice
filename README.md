@@ -2,7 +2,7 @@
 
 This project predicts house prices using various regression techniques and provides tools for data analysis and visualization.
 
-## Table of Contents
+## 📋 Table of Contents
 
 1. [Project Overview](#project-overview)
 2. [Directory Structure](#directory-structure)
@@ -14,7 +14,7 @@ This project predicts house prices using various regression techniques and provi
 6. [Results](#results)
 7. [License](#license)
 
-## Project Overview
+## 🌟 Project Overview
 
 This repository provides a complete pipeline for:
 - Exploratory Data Analysis (EDA)
@@ -22,7 +22,7 @@ This repository provides a complete pipeline for:
 - Training regression models (Linear Regression, Random Forest, and XGBoost)
 - Evaluating models and generating visualizations
 
-## Directory Structure
+## 📁 Directory Structure
 
 ```
 HousePrice/
@@ -39,14 +39,14 @@ HousePrice/
 ├── README.md
 ```
 
-## Key Features
+## 🔑 Key Features
 
 - **EDA**: Correlation matrices, histograms, and boxplots for understanding data distribution.
 - **Data Cleaning**: Removes duplicates and performs scaling.
 - **Regression Models**: Linear Regression, Random Forest, and XGBoost with hyperparameter tuning.
 - **Evaluation**: Generates metrics (MSE, RMSE, R², etc.) and visualization plots.
 
-## Installation
+## 🚀 Installation
 
 1. Clone the repository:
    ```bash
@@ -58,7 +58,7 @@ HousePrice/
    pip install -r requirements.txt
    ```
 
-## Usage
+## 📊 Usage
 
 ### Data Preprocessing and EDA
 
@@ -80,7 +80,7 @@ Output:
 - Model predictions and residuals saved as plots in the `results/` directory
 - Metrics saved in `results/metrics.json`
 
-## Results
+## 📈 Results
 
 ### Examples of EDA Visualizations
 
@@ -100,6 +100,6 @@ Output:
 
 Metrics file (`results/metrics.json`) includes performance metrics for all models.
 
-## License
+## 📝 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
