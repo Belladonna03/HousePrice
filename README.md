@@ -12,8 +12,7 @@ This project predicts house prices using various regression techniques and provi
    - [Data Preprocessing and EDA](#data-preprocessing-and-eda)
    - [Model Training and Evaluation](#model-training-and-evaluation)
 6. [Results](#results)
-7. [Dependencies](#dependencies)
-8. [License](#license)
+7. [License](#license)
 
 ## Project Overview
 
@@ -86,18 +85,18 @@ Output:
 ### Examples of EDA Visualizations
 
 1. **Correlation Matrix Before Preprocessing**  
-   <img src="eda/Correlation_Matrix_Before_Preprocessing.png" alt="Correlation Matrix Before Preprocessing" width="600">
+   <img src="eda/Correlation_Matrix_Before_Preprocessing.png" alt="Correlation Matrix Before Preprocessing" width="500">
 
 2. **Histogram for Garage Size**  
-   <img src="eda/histogram_Garage_Size.png" alt="Histogram for Garage Size" width="600">
+   <img src="eda/histogram_Garage_Size.png" alt="Histogram for Garage Size" width="500">
 
 ### Examples of XGBoost Visualizations
 
 1. **Actual vs Predicted Values**  
-   <img src="results/actual_vs_predicted_XGBoost.png" alt="Actual vs Predicted for XGBoost" width="600">
+   <img src="results/actual_vs_predicted_XGBoost.png" alt="Actual vs Predicted for XGBoost" width="500">
 
 2. **Feature Importance**  
-   <img src="results/feature_importance_XGBoost.png" alt="Feature Importance for XGBoost" width="600">
+   <img src="results/feature_importance_XGBoost.png" alt="Feature Importance for XGBoost" width="500">
 
 Metrics file (`results/metrics.json`) includes performance metrics for all models.
 
