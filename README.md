@@ -88,7 +88,7 @@ Output:
    <img src="eda/Correlation_Matrix_Before_Preprocessing.png" alt="Correlation Matrix Before Preprocessing" width="500">
 
 2. **Histogram for Garage Size**  
-   <img src="eda/histogram_Garage_Size.png" alt="Histogram for Garage Size" width="500">
+   <img src="eda/histogram_Garage_Size.png" alt="Histogram for Garage Size" width="400">
 
 ### Examples of XGBoost Visualizations
 
